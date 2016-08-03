@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Importing react library -->
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.min.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.js -->
     <title>Learning React!</title>
   </head>
-
   <body>
-    <script>
-      
+    <script type="text/babel">
+      var HelloWorld = React.createClass({
+          render: function() {
+              return (<div>
+                <h1>Hello World</h1>
+                <p>I am Henry</p>
+              </div>)
+            }
+      });
+      ReactDOM.render(
+                        <div>
+                        <HelloWorld />
+                        <HelloWorld />
+                        <HelloWorld />
+                        </div>, document.body);
     </script>
   </body>
 </html>
