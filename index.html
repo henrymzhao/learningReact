@@ -9,21 +9,22 @@
     <title>Learning React!</title>
   </head>
   <body>
+    <div id="container"></div>
     <script type="text/babel">
       var HelloWorld = React.createClass({
           render: function() {
               return (<div>
-                <h1>Hello World</h1>
-                <p>I am Henry</p>
-              </div>)
+                        <h1>{this.props.text}</h1>
+                        <p>{this.props.children}</p>
+                      </div>)
             }
       });
       ReactDOM.render(
                         <div>
-                        <HelloWorld />
-                        <HelloWorld />
-                        <HelloWorld />
-                        </div>, document.body);
+                        <HelloWorld text="One"> Wan </HelloWorld>
+                        <HelloWorld text="Two"> Too </HelloWorld>
+                        <HelloWorld text="Three"> Tree </HelloWorld>
+                        </div>, document.getElementById("container"));
     </script>
   </body>
 </html>
