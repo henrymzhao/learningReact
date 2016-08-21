@@ -1,10 +1,11 @@
-var Note = ReactDOM.createClass({
-    render: function() {
-      return (
-        <div className="note"></div>
-      );
-
+var Note = React.createClass({
+  render: function()
+  {
+    return(
+      <div className="note" />
+    );
+  }
 });
 
-React.render(<Note>Hello World</Note>,
+ReactDOM.render(<Note>Hello World</Note>,
     document.getElementById('react-container'));
