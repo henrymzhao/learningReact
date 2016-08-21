@@ -1,30 +1,58 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <!-- Importing react library -->
-    <script src="https://npmcdn.com/react@15.3.0/dist/react.min.js"></script>
-    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
-    <!-- https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.js -->
-    <title>Learning React!</title>
+    <!-- jQuery links -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- React -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
+
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet" type"text/css" />
+    <title>React Bulletin</title>
   </head>
   <body>
-    <div id="container"></div>
+    <div id="react-container"></div>
+    <!-- <script src="js/Note.js" type="text/babel"> -->
     <script type="text/babel">
-      var HelloWorld = React.createClass({
-          render: function() {
-              return (<div>
-                        <h1>{this.props.text}</h1>
-                        <p>{this.props.children}</p>
-                      </div>)
+      var Checkbox = React.createClass
+      ({
+          getInitialState:function()
+          {
+            return {checked: true}
+          },
+          handleCheck: function()
+          {
+            this.setState({checked: !this.state.checked})
+          },
+          render: function()
+          {
+            var msg;
+            if (this.state.checked)
+            {
+              msg = "checked";
             }
+            else {
+              msg = "unchecked";
+            }
+            return(
+              <div>
+                <input type="checkbox" onChange={this.handleCheck} defaultChecked={this.state.checked} />
+                <p>This box is {msg}</p>
+              </div>);
+          }
       });
-      ReactDOM.render(
-                        <div>
-                        <HelloWorld text="One"> Wan </HelloWorld>
-                        <HelloWorld text="Two"> Too </HelloWorld>
-                        <HelloWorld text="Three"> Tree </HelloWorld>
-                        </div>, document.getElementById("container"));
+
+      ReactDOM.render(<Checkbox />, document.getElementById('react-container'))
     </script>
   </body>
 </html>

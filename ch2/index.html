@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Importing react library -->
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.min.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.js -->
+    <title>Learning React!</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      var HelloWorld = React.createClass({
+          render: function() {
+              return (<div>
+                        <h1>{this.props.text}</h1>
+                        <p>{this.props.children}</p>
+                      </div>)
+            }
+      });
+      ReactDOM.render(
+                        <div>
+                        <HelloWorld text="One"> Wan </HelloWorld>
+                        <HelloWorld text="Two"> Too </HelloWorld>
+                        <HelloWorld text="Three"> Tree </HelloWorld>
+                        </div>, document.getElementById("container"));
+    </script>
+  </body>
+</html>
