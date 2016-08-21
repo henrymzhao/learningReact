@@ -32,12 +32,19 @@ var Note = React.createClass({
     return(
       <div className="note">
         <textarea defaultValue={this.props.children} className="form-control"></textarea>
-        <button className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk"/>
+        <button onClick={this.save} className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk"/>
       </div>
     )
   },
   render: function()
   {
+    if (this.state.editing)
+    {
+      return this.renderForm();
+    }
+    else {
+      return this.renderDisplay();
+    }
   }
 });
 
